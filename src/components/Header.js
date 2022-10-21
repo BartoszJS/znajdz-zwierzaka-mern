@@ -9,12 +9,12 @@ const Header = () => {
       <div className="header">
         <div className="cont">
           <ul>
-            <li class="logo">
+            <li className="logo">
               <Link to="/">
                 <Logo />
               </Link>
             </li>
-            <div class="navbars">
+            <div className="navbars">
               <li>
                 <Link className="place" to="/register">
                   DODAJ

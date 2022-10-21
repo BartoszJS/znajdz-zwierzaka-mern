@@ -1,9 +1,7 @@
 import React from "react";
-import Logo from "../components/Logo.js";
 import Wrapper from "../assets/wrappers/LandingPage.js";
 import { FaArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Header from "../components/Header.js";
 
 const Landing = () => {
   return (
@@ -12,7 +10,7 @@ const Landing = () => {
         <div className="main-cont cont">
           <div className="main-content">
             <h1 className="znajdzText1">ZNAJDŹ ZWIERZAKA </h1>
-            <p class="znajdzText2">
+            <p className="znajdzText2">
               W przypadku zaginięcia zwierzęcia, <br /> możesz dodać zwierzę na
               naszą stronę.
             </p>
@@ -22,28 +20,7 @@ const Landing = () => {
           </div>
           <div className="arrow-div">
             <Link to="/register">
-              <button class="btn-arrow-down">
-                <FaArrowDown />
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="main-banner">
-        <div className="main-cont cont">
-          <div className="main-content">
-            <h1 className="znajdzText1">ZNAJDŹ ZWIERZAKA </h1>
-            <p class="znajdzText2">
-              W przypadku zaginięcia zwierzęcia, <br /> możesz dodać zwierzę na
-              naszą stronę.
-            </p>
-            <Link to="/register">
-              <button className="btn btn-glowna"> ZGŁOŚ ZAGINIĘCIE</button>
-            </Link>
-          </div>
-          <div className="arrow-div">
-            <Link to="/register">
-              <button class="btn-arrow-down">
+              <button className="btn-arrow-down">
                 <FaArrowDown />
               </button>
             </Link>

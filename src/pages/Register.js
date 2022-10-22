@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FormRow, Alert } from '../components';
 import Wrapper from '../assets/wrappers/RegisterPage';
+import { useAppContext } from '../context/appContext';
 
 const initialState = {
   name: '',
@@ -9,30 +10,42 @@ const initialState = {
   email: '',
   password: '',
   isMember: true,
-  showAlert: false,
 };
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
   //global state and use navigaet
 
+  const { isLoading, showAlert, displayAlert } = useAppContext();
+
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, surname, phoneNumber, email, password, isMember } = values;
+    if (
+      !email ||
+      !password ||
+      (!isMember && !name) ||
+      (!isMember && !surname) ||
+      (!isMember && !phoneNumber)
+    ) {
+      displayAlert();
+      return;
+    }
+    console.log(values);
   };
 
   return (
     <Wrapper className='full-page'>
       <form className='form' onSubmit={onSubmit}>
         <h3>{values.isMember ? 'Logowanie' : 'Rejestracja'}</h3>
-        {values.showAlert && <Alert />}
+        {showAlert && <Alert />}
         {/* imie */}
         {!values.isMember && (
           <FormRow
